@@ -1,0 +1,28 @@
+.header{
+    display: flex;
+    background-image: url("/public/image/banner_bg.jpg");
+    background-position: top;
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100%;
+}
+
+.logo{
+    height: 400px;
+    margin: 50px;
+}
+
+.call_lines{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: flex-end;
+    width: 100%;
+    color: white;
+    font-size: 1.2em;
+    margin: 25px;
+}
+
+.call_lines h1{
+    margin-bottom: -25px;
+}
