@@ -3,6 +3,7 @@ import FullForm from "./components/FullForm";
 import "./App.css"
 
 
+
 function App() {
   return (
     <div className="App">
@@ -15,6 +16,7 @@ function App() {
 
         <section className="form_area">
           <FullForm />
+          
         </section>
         
       </main>
