@@ -7,14 +7,7 @@ import "./FullForm.css"
 
 
 
-const FullForm = () => {
-
-    const clados = [
-        'Herrerasauridae',
-        'Sauropodomorpha',
-        'ornithischia',
-        'Theropoda'
-    ]
+const FullForm = (props) => {
 
     const [especie,setEspecie] = useState('')
     const [familia,setFamilia] = useState('')
@@ -23,7 +16,16 @@ const FullForm = () => {
 
     const buttonSubmit = (event) => {
         event.preventDefault()
-        console.log("Deu certo => ", especie, familia, imagem, clado)
+        props.addDino({
+            especie,
+            familia,
+            imagem,
+            clado
+        })
+        setImagem ('')
+        setFamilia('')
+        setEspecie('')
+        setClado('')
     }
     
 
@@ -55,7 +57,7 @@ const FullForm = () => {
                 <FormList 
                     requiredStatus={true} 
                     label="Clado" 
-                    itens={clados}
+                    itens={props.clados}
                     typeValue = {clado}
                     Auteration={e => setClado(e)}
                 />

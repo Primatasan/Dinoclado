@@ -5,6 +5,7 @@ const FormList = (props) => {
         <div className="formlist-field">
             <label>{props.label}
                 <select required={props.requiredStatus} value={props.typeValue} onChange={event => props.Auteration(event.target.value)}>
+                    <option value=""/>
                     {props.itens.map( item => <option key={item}>{item}</option>)}
                 </select>
             </label>
