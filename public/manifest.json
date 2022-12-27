@@ -1,6 +1,6 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "short_name": "DinoClado",
+  "name": "Os principais clados de Dinossauros organizados em um só lugar",
   "icons": [
     {
       "src": "favicon.ico",
