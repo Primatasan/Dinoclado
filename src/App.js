@@ -9,7 +9,7 @@ import "./App.css"
 
 function App() {
 
-  const clados = [
+  const [clados, setClados] = useState([
     {
       cladoName:'Herrerasauridae',
       primaryColor:'#6AFCB2',
@@ -33,12 +33,25 @@ function App() {
       primaryColor:'#6AFCE6',
       secundaryColor:'#FDB451'
     }
-  ]
+  ])
 
   const [dinossauros, setDinossauro] = useState([])
 
   const addDinoSee = (dinossauro) => {
     setDinossauro([...dinossauros, dinossauro])
+  }
+
+  function deleteDino (){
+    console.log("teste")
+  }
+
+  function changeColor (bgColor, cName) {
+      setClados(clados.map(clado => {
+        if(clado.cladoName === cName) {
+          clado.primaryColor = bgColor
+        }
+        return clado;
+      }))
   }
 
   return (
@@ -56,12 +69,15 @@ function App() {
 
         <section>
           {clados.map(clado => <Clado 
-            key={clado.cladoName} 
+            key={clado.cladoName}
+            changeColor={changeColor} 
             nome={clado.cladoName} 
             primaryColor={clado.primaryColor} 
             secundaryColor={clado.secundaryColor}
             dinossauros={dinossauros.filter(dinossauro => dinossauro.clado === clado.cladoName)}
-            />)}
+            deleteDino = {deleteDino}  
+            />
+          )}
         </section>
         
       </main>
