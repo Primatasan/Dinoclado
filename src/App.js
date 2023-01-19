@@ -12,26 +12,22 @@ function App() {
   const [clados, setClados] = useState([
     {
       cladoName:'Herrerasauridae',
-      primaryColor:'#6AFCB2',
-      secundaryColor:'#FD9651'
+      cladoColor:'#FD9651'
     }
     ,
     {
       cladoName:'Sauropodomorpha',
-      primaryColor:'#6AFCC5',
-      secundaryColor:'#FDA051'
+      cladoColor:'#FDA051'
     }
     ,
     {
       cladoName:'ornithischia',
-      primaryColor:'#6AFCD3',
-      secundaryColor:'#FDAA51'
+      cladoColor:'#FDAA51'
     }
     ,
     {
       cladoName:'Theropoda',
-      primaryColor:'#6AFCE6',
-      secundaryColor:'#FDB451'
+      cladoColor:'#FDB451'
     }
   ])
 
@@ -48,7 +44,7 @@ function App() {
   function changeColor (bgColor, cName) {
       setClados(clados.map(clado => {
         if(clado.cladoName === cName) {
-          clado.primaryColor = bgColor
+          clado.cladoColor = bgColor
         }
         return clado;
       }))
@@ -72,8 +68,7 @@ function App() {
             key={clado.cladoName}
             changeColor={changeColor} 
             nome={clado.cladoName} 
-            primaryColor={clado.primaryColor} 
-            secundaryColor={clado.secundaryColor}
+            cladoColor={clado.cladoColor} 
             dinossauros={dinossauros.filter(dinossauro => dinossauro.clado === clado.cladoName)}
             deleteDino = {deleteDino}  
             />

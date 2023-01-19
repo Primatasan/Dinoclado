@@ -1,16 +1,16 @@
 import Card from '../Card'
+import hexToRgba from 'hex-to-rgba';
 import './Clado.css'
 
 const Clado = (props) => {
     return(
-        props.dinossauros.length > 0 && <article className='clado' style={{ backgroundColor:props.secundaryColor}}>
-            <input onChange={e => props.changeColor(e.target.value, props.nome)} value={props.primaryColor} type='color' className='input-color'/>
-            <h3 style={{ borderColor:props.primaryColor}}>{props.nome}</h3>
+        props.dinossauros.length > 0 && <article className='clado' style={{ backgroundColor:hexToRgba(props.cladoColor, 0.4)}}>
+            <input onChange={e => props.changeColor(e.target.value, props.nome)} value={props.cladoColor} type='color' className='input-color'/>
+            <h3 style={{ borderColor:props.cladoColor, color:props.cladoColor}}>{props.nome}</h3>
             <div className='cards'>
                 {props.dinossauros.map(dinossauro => 
                     <Card 
-                        colorButton = {props.secundaryColor}
-                        bgColor={props.primaryColor} 
+                        bgColor={props.cladoColor} 
                         key={dinossauro.especie} 
                         especie={dinossauro.especie} 
                         familia={dinossauro.familia} 

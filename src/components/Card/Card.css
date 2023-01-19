@@ -15,7 +15,8 @@
 
 
 .card-body img{
-    width: 100px;
+    width: 150px;
+    height: 150px;
     border-radius: 50%;
     position: relative;
     bottom: -50px;
@@ -30,7 +31,6 @@
 }
 
 .card-info h4{
-    color: #FD9651;
     font-size: 18px;
     line-height: 22px;
     font-weight: bold;
