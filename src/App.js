@@ -2,6 +2,8 @@ import { useState } from "react";
 import Banner from "./components/Banner";
 import FullForm from "./components/FullForm";
 import Clado from "./components/Clado";
+import Footer from "./components/Footer"
+import { v4 as uuidv4} from 'uuid';
 
 import "./App.css"
 
@@ -11,25 +13,31 @@ function App() {
 
   const [clados, setClados] = useState([
     {
+      id: uuidv4(),
       cladoName:'Herrerasauridae',
       cladoColor:'#FD9651'
     }
     ,
     {
+      id: uuidv4(),
       cladoName:'Sauropodomorpha',
       cladoColor:'#FDA051'
     }
     ,
     {
+      id: uuidv4(),
       cladoName:'ornithischia',
       cladoColor:'#FDAA51'
     }
     ,
     {
+      id: uuidv4(),
       cladoName:'Theropoda',
       cladoColor:'#FDB451'
     }
   ])
+
+
 
   const [dinossauros, setDinossauro] = useState([])
 
@@ -37,13 +45,13 @@ function App() {
     setDinossauro([...dinossauros, dinossauro])
   }
 
-  function deleteDino (){
-    console.log("teste")
+  function deleteDino (id){
+    setDinossauro(dinossauros.filter(dinossauro => dinossauro.id !== id))
   }
 
-  function changeColor (bgColor, cName) {
+  function changeColor (bgColor, id) {
       setClados(clados.map(clado => {
-        if(clado.cladoName === cName) {
+        if(clado.id === id) {
           clado.cladoColor = bgColor
         }
         return clado;
@@ -60,12 +68,16 @@ function App() {
       <main>
 
         <section className="form_area">
-          <FullForm addDino={dinossauro => addDinoSee(dinossauro)} clados={clados.map(clado => clado.cladoName)}/>
+          <FullForm 
+            addDino={dinossauro => addDinoSee(dinossauro)} 
+            clados={clados.map(clado => clado.cladoName)}
+          />
         </section>
 
         <section>
-          {clados.map(clado => <Clado 
-            key={clado.cladoName}
+          {clados.map(clado => <Clado
+            id={clado.id}
+            key={clado.id}
             changeColor={changeColor} 
             nome={clado.cladoName} 
             cladoColor={clado.cladoColor} 
@@ -76,6 +88,8 @@ function App() {
         </section>
         
       </main>
+      
+      <Footer />
       
     </div>
   );
