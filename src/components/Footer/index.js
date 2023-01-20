@@ -1,7 +1,4 @@
-import {BsFacebook} from 'react-icons/bs'
-import {BsInstagram} from 'react-icons/bs'
-import {BsTwitter} from 'react-icons/bs'
-import {BsGithub} from 'react-icons/bs'
+import {BsFacebook, BsInstagram, BsTwitter, BsGithub} from 'react-icons/bs'
 
 import './Footer.css'
 
