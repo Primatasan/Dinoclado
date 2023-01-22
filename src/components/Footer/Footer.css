@@ -1,0 +1,35 @@
+a{
+    text-decoration: none;
+}
+
+.footer_body{
+    display: flex;
+    justify-content: space-between;
+    background-image: url("/public/image/banner_bg.jpg");
+    background-position: bottom;
+    align-items: center;
+    padding: 25px 20px;
+}
+
+.footer_social_icon{
+    margin-right: 25px;
+    color: white;
+}
+
+.footer_logo{
+    width: 150px;
+}
+
+.footer_dev{
+    color: white;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.footer_dev p{
+    color: white;
+    font-size: 1.2em;
+    font-weight: bold;
+    margin-right: 25px;
+}

@@ -1,6 +1,6 @@
-// Css
+
 import "./Banner.css"
-// imagens
+
 
 
 function Banner() {

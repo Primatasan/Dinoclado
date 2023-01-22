@@ -2,6 +2,8 @@ import { useState } from "react";
 import Banner from "./components/Banner";
 import FullForm from "./components/FullForm";
 import Clado from "./components/Clado";
+import Footer from "./components/Footer"
+import { v4 as uuidv4} from 'uuid';
 
 import "./App.css"
 
@@ -9,36 +11,51 @@ import "./App.css"
 
 function App() {
 
-  const clados = [
+  const [clados, setClados] = useState([
     {
+      id: uuidv4(),
       cladoName:'Herrerasauridae',
-      primaryColor:'#6AFCB2',
-      secundaryColor:'#FD9651'
+      cladoColor:'#FD9651'
     }
     ,
     {
+      id: uuidv4(),
       cladoName:'Sauropodomorpha',
-      primaryColor:'#6AFCC5',
-      secundaryColor:'#FDA051'
+      cladoColor:'#FDA051'
     }
     ,
     {
+      id: uuidv4(),
       cladoName:'ornithischia',
-      primaryColor:'#6AFCD3',
-      secundaryColor:'#FDAA51'
+      cladoColor:'#FDAA51'
     }
     ,
     {
+      id: uuidv4(),
       cladoName:'Theropoda',
-      primaryColor:'#6AFCE6',
-      secundaryColor:'#FDB451'
+      cladoColor:'#FDB451'
     }
-  ]
+  ])
+
+
 
   const [dinossauros, setDinossauro] = useState([])
 
   const addDinoSee = (dinossauro) => {
     setDinossauro([...dinossauros, dinossauro])
+  }
+
+  function deleteDino (id){
+    setDinossauro(dinossauros.filter(dinossauro => dinossauro.id !== id))
+  }
+
+  function changeColor (bgColor, id) {
+      setClados(clados.map(clado => {
+        if(clado.id === id) {
+          clado.cladoColor = bgColor
+        }
+        return clado;
+      }))
   }
 
   return (
@@ -51,20 +68,28 @@ function App() {
       <main>
 
         <section className="form_area">
-          <FullForm addDino={dinossauro => addDinoSee(dinossauro)} clados={clados.map(clado => clado.cladoName)}/>
+          <FullForm 
+            addDino={dinossauro => addDinoSee(dinossauro)} 
+            clados={clados.map(clado => clado.cladoName)}
+          />
         </section>
 
         <section>
-          {clados.map(clado => <Clado 
-            key={clado.cladoName} 
+          {clados.map(clado => <Clado
+            id={clado.id}
+            key={clado.id}
+            changeColor={changeColor} 
             nome={clado.cladoName} 
-            primaryColor={clado.primaryColor} 
-            secundaryColor={clado.secundaryColor}
+            cladoColor={clado.cladoColor} 
             dinossauros={dinossauros.filter(dinossauro => dinossauro.clado === clado.cladoName)}
-            />)}
+            deleteDino = {deleteDino}  
+            />
+          )}
         </section>
         
       </main>
+      
+      <Footer />
       
     </div>
   );

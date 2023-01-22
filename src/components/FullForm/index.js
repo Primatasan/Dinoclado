@@ -2,6 +2,7 @@ import { useState } from "react"
 import FormButton from "../FormButton"
 import FormField from "../FormField"
 import FormList from "../FormList"
+import { v4 as uuidv4} from 'uuid';
 
 import "./FullForm.css"
 
@@ -13,6 +14,7 @@ const FullForm = (props) => {
     const [familia,setFamilia] = useState('')
     const [imagem,setImagem] = useState('')
     const [clado,setClado] = useState('')
+    const [id,setId] = useState('')
 
     const buttonSubmit = (event) => {
         event.preventDefault()
@@ -20,12 +22,14 @@ const FullForm = (props) => {
             especie,
             familia,
             imagem,
-            clado
+            clado,
+            id
         })
         setImagem ('')
         setFamilia('')
         setEspecie('')
         setClado('')
+        setId(uuidv4())
     }
     
 

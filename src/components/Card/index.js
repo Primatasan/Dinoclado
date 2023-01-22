@@ -1,14 +1,20 @@
+import {AiFillCloseCircle} from 'react-icons/ai'
 import './Card.css'
 
- const Card = ({especie, familia, imagem, bgColor}) => {
+ const Card = (props) => {
     return (
         <div className='card-body'>
-            <div className='card-head' style={{backgroundColor: bgColor}}>
-                <img src={imagem} alt={especie}/>
+            <AiFillCloseCircle 
+                size={35} 
+                className='close-button' 
+                onClick={() => props.deleteDino(props.dinossauro.id)}  
+            />
+            <div className='card-head' style={{backgroundColor: props.bgColor}}>
+                <img src={props.imagem} alt={props.especie}/>
             </div>
             <div className='card-info'>
-                <h4>{especie}</h4>
-                <p>{familia}</p>
+                <h4 style={{color:props.bgColor}}>{props.especie}</h4>
+                <p>{props.familia}</p>
             </div>
         </div>
     )

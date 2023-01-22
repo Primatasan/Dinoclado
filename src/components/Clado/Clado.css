@@ -1,4 +1,5 @@
 .clado{
+    position: relative;
     text-align: center;
     padding: 32px;
 }
@@ -14,4 +15,10 @@
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
+}
+
+.input-color{
+    position: absolute;
+    right: 20px;
+    top: 20px;
 }
